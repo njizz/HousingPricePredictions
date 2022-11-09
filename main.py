@@ -15,7 +15,7 @@ X_full.dropna(axis=0, subset=['SalePrice'], inplace=True)
 y = X_full.SalePrice
 X_full.drop(['SalePrice'], axis=1, inplace=True)
 
-# To keep things simple, only use numerical predictors
+# Only use numerical predictors
 X = X_full.select_dtypes(exclude=['object'])
 X_test = X_test_full.select_dtypes(exclude=['object'])
 
@@ -26,7 +26,6 @@ X_train, X_valid, y_train, y_valid = train_test_split(X, y, train_size=0.8, test
 # Check out the data
 print(X_train.head())
 print(X_train.shape)
-print(X_test.shape)
 missing_val_count_by_column = (X_train.isnull().sum())
 print(missing_val_count_by_column[missing_val_count_by_column > 0])
 
